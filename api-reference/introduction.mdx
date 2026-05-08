@@ -1,33 +1,47 @@
 ---
-title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+title: "Introduction"
+description: "The XTrace Memory API provides CRUD operations over structured memories"
 ---
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
+## Base URL
 
-## Welcome
-
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
-
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
+```text
+https://api.xtrace.ai/v1
+```
 
 ## Authentication
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+All requests require a Bearer token in the `Authorization` header:
+
+```bash
+curl -H "Authorization: Bearer YOUR_API_KEY" \
+  https://api.xtrace.ai/v1/memories
+```
+
+There are two token types:
+
+| Token | How to get it | Used by |
+| --- | --- | --- |
+| **Auth0 JWT** | Sign in at [app.xtrace.ai](https://app.xtrace.ai) | Web app, dashboard |
+| **XMem API key** | `POST /v1/auth/generate-xmem-key` or Settings page | API integrations, Chrome extension |
+
+For programmatic access, use an XMem API key. See [Authentication](/api/authentication) for details.
+
+## Response format
+
+Successful responses return JSON. List endpoints wrap results in a `results` array with optional `next_cursor` for pagination:
 
 ```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
+{
+  "results": [ ... ],
+  "next_cursor": "eyJwIjoxfQ=="
+}
 ```
+
+## Rate limits
+
+Rate limits are applied per API key. Current limits depend on your plan tier. Headers `X-RateLimit-Limit` and `X-RateLimit-Remaining` are included in responses.
+
+## Explore the API
+
+The **XTrace Memory API** tab below contains the full OpenAPI reference with request/response schemas for every endpoint.

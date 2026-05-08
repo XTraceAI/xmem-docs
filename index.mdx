@@ -1,133 +1,79 @@
 ---
 title: "Introduction"
-description: "Welcome to the new home for your documentation"
-icon: 'star'
+icon: "star"
 ---
 
-## Setting up
+# What is XTrace?
 
-Get your documentation site up and running in minutes.
+XTrace is a **belief revision system** for AI. It gives you persistent context across ChatGPT, Claude, Gemini, and every AI tool you use — not by dumping chat logs into a vector database, but by maintaining a structured model of what's true, revising it as things change, and strengthening it with every correction.
 
-<Card
-  title="Start here"
-  icon="rocket"
-  href="/quickstart"
-  horizontal
->
-  Follow our three step quickstart guide.
-</Card>
+The storage problem is solved. The maintenance problem isn't. Memory without revision degrades into noise. XTrace solves maintenance.
 
-## Make it yours
+## Why beliefs, not memories
 
-Design a docs site that looks great and empowers your users.
+Every AI memory product stores facts. But facts go stale: you change jobs, drop a hobby, reverse a decision, pass a deadline. The facts you stored are now wrong, and the system has no idea.
+
+XTrace maintains **beliefs** — assertions about the world that can be revised, retracted, expired, and protected based on how much they matter.
+
+| Mechanism | What it does |
+| --- | --- |
+| **Entrenchment** | Beliefs carry weight. What you explicitly state outranks system inferences. Core beliefs are protected from silent overrides. |
+| **Contraction** | Beliefs can be removed cleanly — "we're NOT doing the Kafka migration" — without needing a replacement. The system distinguishes real-world changes from its own mistakes. |
+| **Dependency propagation** | When a belief changes, everything built on it is flagged — downstream beliefs and artifacts. No hidden breakage. |
+| **Learning from corrections** | Every correction becomes a labeled example. The system retrieves similar past mistakes before future extractions, improving over time without fine-tuning. |
+
+## Three types of knowledge
+
+XTrace extracts and maintains three kinds of structured knowledge from your conversations:
 
 <Columns cols={2}>
-  <Card
-    title="Edit locally"
-    icon="pen-to-square"
-    href="/development"
-  >
-    Edit your docs locally and preview them in real time.
+  <Card title="Beliefs (facts)" icon="lightbulb">
+    Atomic assertions: "user prefers TypeScript," "launch window is 30 days post-GA." Each carries entrenchment weight, can be superseded or retracted, and links to the conversation it came from.
   </Card>
-  <Card
-    title="Customize your site"
-    icon="palette"
-    href="/essentials/settings"
-  >
-    Customize the design and colors of your site to match your brand.
+
+  <Card title="Episodes" icon="film">
+    Conversation summaries that capture the arc of a session — what was discussed, what was decided, what's still open. Episodes link to the beliefs they established.
   </Card>
-    <Card
-    title="Set up navigation"
-    icon="map"
-    href="/essentials/navigation"
-  >
-    Organize your docs to help users find what they need and succeed with your product.
-  </Card>
-  <Card
-    title="API documentation"
-    icon="terminal"
-    href="/api-reference/introduction"
-  >
-    Auto-generate API documentation from OpenAPI specifications.
+
+  <Card title="Artifacts" icon="cube">
+    Work products: a technical design, a blog post, a GTM strategy. Version-chained like git — each revision links to the previous, with the beliefs and decisions that drove the change.
   </Card>
 </Columns>
 
-## Create beautiful pages
+## No more cold starts
 
-Everything you need to create world-class documentation.
+Every AI session today is a cold start. You re-explain yourself, re-establish context, re-upload your work.
 
-<Columns cols={2}>
-  <Card
-    title="Write with MDX"
-    icon="pen-fancy"
-    href="/essentials/markdown"
-  >
-    Use MDX to style your docs pages.
-  </Card>
-  <Card
-    title="Code samples"
-    icon="code"
-    href="/essentials/code"
-  >
-    Add sample code to demonstrate how to use your product.
-  </Card>
-  <Card
-    title="Images"
-    icon="image"
-    href="/essentials/images"
-  >
-    Display images and other media.
-  </Card>
-  <Card
-    title="Reusable snippets"
-    icon="recycle"
-    href="/essentials/reusable-snippets"
-  >
-    Write once and reuse across your docs.
-  </Card>
-</Columns>
+XTrace eliminates this. At the end of every session, the system extracts what matters: the beliefs established, the decisions made, the artifacts created or revised, the open threads. When you start a new session — same tool, different tool, next day, next month — the context is already there.
 
-## Make your content agent ready
+Session 47 feels like session 1, but with full context.
 
-Make your docs work for humans and AI agents alike.
+## Cross-tool continuity
+
+Draft a strategy in Claude. Research competitors in ChatGPT. Build the slide deck in your favorite tool. Each connects to the same belief system. Each starts with the same context. Each tool's contributions flow back.
+
+Corrections propagate too. Tell Claude "we're NOT doing the Kafka migration" and every connected agent updates. One correction, everywhere, immediately.
+
+## Context as login
+
+The endgame: **"Connect your XTrace"** gives an app your preferences, your work history, your decisions — scoped to exactly what that app needs. You don't onboard tools anymore. Tools onboard to you.
+
+## What's next
 
 <Columns cols={2}>
-  <Card
-    title="Prompt component"
-    icon="robot"
-    href="/agent-ready/prompt"
-  >
-    Embed shareable AI prompts readers can copy or open in Cursor.
+  <Card title="Quickstart" icon="bolt" href="/docs/get-started/quickstart">
+    Get an API key and add your first memory in 5 minutes.
   </Card>
-  <Card
-    title="Visibility"
-    icon="eye"
-    href="/agent-ready/visibility"
-  >
-    Show different content to humans and agents reading your docs.
+
+  <Card title="Core concepts" icon="layer-group" href="/docs/core-concepts/memory-types">
+    Deep dive into beliefs, episodes, and artifacts.
   </Card>
-  <Card
-    title="Contextual menu"
-    icon="bolt"
-    href="/agent-ready/contextual"
-  >
-    Give readers one-click access to Claude, ChatGPT, Cursor, and more.
+
+  <Card title="Chrome extension" icon="puzzle-piece" href="https://chromewebstore.google.com/detail/xtrace-sync-ai-memories/bmfpjofdjjelhnjokoolehikpaaohapj">
+    Sync conversations from ChatGPT, Claude, and Gemini automatically.
   </Card>
-  <Card
-    title="AI coding tools"
-    icon="wand-magic-sparkles"
-    href="/ai-tools/claude-code"
-  >
-    Set up Claude Code, Cursor, or Windsurf with Mintlify's skill.
+
+  <Card title="API Reference" icon="book" href="/api-reference/overview/api-overview">
+    Full CRUD API for memories.
   </Card>
 </Columns>
-
-## Need inspiration?
-
-<Card
-  title="See complete examples"
-  icon="stars"
-  href="https://mintlify.com/customers"
->
-  Browse our showcase of exceptional documentation sites.
-</Card>
